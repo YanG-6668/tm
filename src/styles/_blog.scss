@@ -1,0 +1,82 @@
+.blog {
+  background-color: #f1f1f1;
+  padding: $padding-120 0;
+  position: relative;
+
+  @media (max-width: 450px) {
+    padding: $padding-120 / 2 0;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 30px;
+  }
+
+  &__subscribe {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    &-link {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 24px;
+      color: #fff;
+      z-index: 2;
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 50px;
+        height: 50px;
+        background-color: #5dbdfe;
+        border-radius: 50%;
+        z-index: -1;
+      }
+    }
+
+    &-title,
+    &-days {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      color: #fff;
+    }
+
+    &-days {
+      bottom: 40px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    &-title {
+      font-size: 24px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    
+    img {
+      box-shadow: 4px 6px 5px 0 rgba(0,0,0,0.5);
+      width: 100%;
+    }
+
+    &:hover {
+      .blog__subscribe {
+        opacity: 1;
+      }
+    }
+  }
+}
